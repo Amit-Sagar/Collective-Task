@@ -17,6 +17,10 @@ const assets = {
         menuIcon: require('@/assets/icons/menu-05.svg').default,
         plusIcon: require('@/assets/icons/plus.svg').default,
         userImage: require('@/assets/icons/userImage.svg').default,
+    },
+    images: {
+        snapChat: require('@/assets/images/snapchat-logo.png').default,
+        sorting: require('@/assets/images/sorting-icon.png').default,
     }
 }
 

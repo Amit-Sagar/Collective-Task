@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.doughnut {
+    width: 130px !important;
+    height: 130px !important;
+}
+
+.bar-chart {
+    width: 484px !important;
+    height: 200px !important;
+}

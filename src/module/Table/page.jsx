@@ -5,7 +5,8 @@ import sortingIcon from "../../../public/assets/sorting-icon.png";
 
 const Table = ({ rows, cols }) => {
   const [data, setData] = useState(cols);
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
 
   const sortData = (key) => {
@@ -28,13 +29,26 @@ const Table = ({ rows, cols }) => {
     setSortConfig({ key, direction });
   };
 
+  const handleItemsPerPageChange = (event) => {
+    setItemsPerPage(Number(event.target.value));
+    setCurrentPage(1);
+  };
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const paginatedData = data.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+
   return (
     <div>
       <table>
         <thead>
           <tr>
             {rows.map((row) => (
-              <th onClick={row.sorting ? () => sortData(row.id) : null}>
+              <th key={row.id} onClick={row.sorting ? () => sortData(row.id) : null}>
                 <div
                   style={{
                     display: "flex",
@@ -52,10 +66,10 @@ const Table = ({ rows, cols }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((item, index) => (
+          {paginatedData.map((item, index) => (
             <tr key={index}>
               <td style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-                <img src={item.icon} width={32} height={32} />
+                <img src={item.icon} width={32} height={32} alt="" />
                 <span>{item.name}</span>
               </td>
               <td>{item.missionId}</td>
@@ -68,6 +82,24 @@ const Table = ({ rows, cols }) => {
           ))}
         </tbody>
       </table>
+      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "16px" }}>
+        <div>
+          Show{" "}
+          <select value={itemsPerPage} onChange={handleItemsPerPageChange}>
+            <option value={10}>10</option>
+            <option value={20}>20</option>
+            <option value={50}>50</option>
+          </select>
+          per page
+        </div>
+        <div>
+          {Array.from({ length: totalPages }, (_, index) => (
+            <button key={index} onClick={() => handlePageChange(index + 1)} disabled={currentPage === index + 1}>
+              {index + 1}
+            </button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

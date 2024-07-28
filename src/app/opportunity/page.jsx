@@ -1,6 +1,10 @@
 import Table from "@/module/Table/page";
 import React from "react";
 import snapChat from "../../../public/assets/snapchat-logo.png";
+import Card from "@/components/common/Card";
+import Header from "@/components/Header";
+import Image from "next/image";
+import assets from "@/assets";
 
 const Opportunity = () => {
   const ROWS = [
@@ -113,8 +117,67 @@ const Opportunity = () => {
       openings: 24,
       icon: snapChat.src,
     },
+    {
+      name: "Areate a Reel for Gujrat Tourism on Instagram",
+      missionId: "982918279201920",
+      brand: "Snapchat",
+      start: "12/04/2023, 12:00 PM",
+      end: "12/04/2023, 12:00 PM",
+      type: "Giveaway",
+      openings: 24,
+      icon: snapChat.src,
+    }, {
+      name: "Areate a Reel for Gujrat Tourism on Instagram",
+      missionId: "982918279201920",
+      brand: "Snapchat",
+      start: "12/04/2023, 12:00 PM",
+      end: "12/04/2023, 12:00 PM",
+      type: "Giveaway",
+      openings: 24,
+      icon: snapChat.src,
+    }, {
+      name: "Areate a Reel for Gujrat Tourism on Instagram",
+      missionId: "982918279201920",
+      brand: "Snapchat",
+      start: "12/04/2023, 12:00 PM",
+      end: "12/04/2023, 12:00 PM",
+      type: "Giveaway",
+      openings: 24,
+      icon: snapChat.src,
+    }, {
+      name: "Areate a Reel for Gujrat Tourism on Instagram",
+      missionId: "982918279201920",
+      brand: "Snapchat",
+      start: "12/04/2023, 12:00 PM",
+      end: "12/04/2023, 12:00 PM",
+      type: "Giveaway",
+      openings: 24,
+      icon: snapChat.src,
+    },
   ];
-  return <Table rows={ROWS} cols={COLS} />;
+  return (
+    <div>
+      <Header showBtn />
+      <Card classes="p-5 overflow-auto">
+        <div>
+          <div
+            style={{
+              display: "flex",
+              gap: "2px",
+              borderBottom: "1px solid #F2F2F2",
+              paddingBottom: "16px",
+              marginBottom: "16px",
+              width: "90%",
+            }}
+          >
+            <Image src={assets.icons.opportunity} />
+            <h1 style={{ fontSize: "28px" }}>Opportunities</h1>
+          </div>
+          <Table rows={ROWS} cols={COLS} />
+        </div>
+      </Card>
+    </div>
+  );
 };
 
 export default Opportunity;

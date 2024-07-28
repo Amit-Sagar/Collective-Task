@@ -1,9 +1,7 @@
 /* public/opportunity.css */
 
 table {
-  max-width: 1050px;
   border-collapse: collapse;
-  overflow: scroll;
 }
 
 th,

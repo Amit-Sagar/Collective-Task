@@ -9,6 +9,7 @@ import Table from "@/components/common/Table";
 const Opportunity = () => {
   const COLS = [
     {
+      id: "name",
       title: "Name",
       sorting: true,
       render: (rowData) => {
@@ -21,6 +22,7 @@ const Opportunity = () => {
       },
     },
     {
+      id: "missionId",
       title: "Mission ID",
       sorting: true,
       render: (rowData) => {
@@ -28,29 +30,31 @@ const Opportunity = () => {
       },
     },
     {
+      id: "brand",
       title: "Brand",
       sorting: true,
       render: (rowData) => {
-        return <span className="fs-12 text-nowrap">{rowData.brand}</span>;
+        return <span className="text-nowrap">{rowData.brand}</span>;
       },
     },
     {
+      id: "start",
       title: "Start",
       sorting: true,
       render: (rowData) => {
-        return <div className="flex items-center">{rowData.start}</div>;
+        return <div className="text-nowrap">{rowData.start}</div>;
       },
     },
     {
+      id: "end",
       title: "End",
       sorting: true,
       render: (rowData) => {
-        return (
-          <span className="w-100p flex justify-center">{rowData.end}</span>
-        );
+        return <span className="text-nowrap">{rowData.end}</span>;
       },
     },
     {
+      id: "type",
       title: "Type",
       sorting: true,
       render: (rowData) => {
@@ -58,6 +62,7 @@ const Opportunity = () => {
       },
     },
     {
+      id: "openings",
       title: "Openings",
       sorting: true,
       render: (rowData) => {

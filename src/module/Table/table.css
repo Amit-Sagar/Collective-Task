@@ -1,0 +1,36 @@
+/* public/opportunity.css */
+
+table {
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 14px 16px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+td:first-child {
+  font-size: 14px;
+  font-weight: 400;
+  min-width: 280px;
+  line-height: 16px;
+}
+
+td:not(:first-child) {
+  color: #666;
+  white-space: nowrap;
+}

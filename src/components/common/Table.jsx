@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import "./table.css";
 import assets from "@/assets";
+import Image from "next/image";
 
 const Table = ({ rows, cols }) => {
-  const [data, setData] = useState(cols);
+  const [data, setData] = useState(rows);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
@@ -47,13 +47,14 @@ const Table = ({ rows, cols }) => {
 
   return (
     <div>
-      <table>
+      <table className="border border-collapse	">
         <thead>
           <tr>
-            {rows.map((row) => (
+            {cols.map((col) => (
               <th
-                key={row.id}
-                onClick={row.sorting ? () => sortData(row.id) : null}
+                className="border border-[#ddd] py-3 px-4 text-left bg-[#f2f2f2] cursor-pointer text-sm"
+                key={col.id}
+                onClick={col.sorting ? () => sortData(col.id) : null}
               >
                 <div
                   style={{
@@ -64,9 +65,9 @@ const Table = ({ rows, cols }) => {
                     gap: "8px",
                   }}
                 >
-                  <p>{row.title}</p>
-                  {row.sorting && (
-                    <img src={assets.images.sorting} width={12} height={12} />
+                  <p>{col.title}</p>
+                  {col.sorting && (
+                    <Image src={assets.images.sorting} width={12} height={12} />
                   )}
                 </div>
               </th>
@@ -75,17 +76,12 @@ const Table = ({ rows, cols }) => {
         </thead>
         <tbody>
           {paginatedData.map((item, index) => (
-            <tr key={index}>
-              <td style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-                <img src={item.icon} width={32} height={32} alt="" />
-                <span>{item.name}</span>
-              </td>
-              <td>{item.missionId}</td>
-              <td>{item.brand}</td>
-              <td>{item.start}</td>
-              <td>{item.end}</td>
-              <td>{item.type}</td>
-              <td>{item.openings}</td>
+            <tr key={index} className="hover:bg-[#f1f1f1]">
+              {cols.map((col) => (
+                <td className="border border-[#ddd] py-3 px-4 text-left  text-xs">
+                  {col.render(item)}
+                </td>
+              ))}
             </tr>
           ))}
         </tbody>

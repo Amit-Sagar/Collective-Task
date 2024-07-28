@@ -8,6 +8,8 @@ const Table = ({ rows, cols }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
+  const paginatedData = data.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+  const totalPages = Math.ceil(data.length / itemsPerPage);
 
   const sortData = (key) => {
     let direction = "asc";
@@ -38,13 +40,6 @@ const Table = ({ rows, cols }) => {
     setCurrentPage(page);
   };
 
-  const paginatedData = data.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
-
-  const totalPages = Math.ceil(data.length / itemsPerPage);
-
   return (
     <div>
       <table className="border border-collapse	">
@@ -66,9 +61,7 @@ const Table = ({ rows, cols }) => {
                   }}
                 >
                   <p>{col.title}</p>
-                  {col.sorting && (
-                    <Image src={assets.images.sorting} width={12} height={12} />
-                  )}
+                  {col.sorting && <Image src={assets.images.sorting} width={12} height={12} />}
                 </div>
               </th>
             ))}
@@ -78,9 +71,7 @@ const Table = ({ rows, cols }) => {
           {paginatedData.map((item, index) => (
             <tr key={index} className="hover:bg-[#f1f1f1]">
               {cols.map((col) => (
-                <td className="border border-[#ddd] py-3 px-4 text-left  text-xs">
-                  {col.render(item)}
-                </td>
+                <td className="border border-[#ddd] py-3 px-4 text-left  text-xs">{col.render(item)}</td>
               ))}
             </tr>
           ))}
@@ -90,28 +81,51 @@ const Table = ({ rows, cols }) => {
         style={{
           display: "flex",
           justifyContent: "space-between",
-          marginBottom: "16px",
+          marginTop: "16px",
         }}
       >
-        <div>
-          Show
-          <select value={itemsPerPage} onChange={handleItemsPerPageChange}>
-            <option value={10}>10</option>
-            <option value={20}>20</option>
-            <option value={50}>50</option>
-          </select>
-          per page
+        <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+          <span
+            style={{
+              border: "1px solid #f2f2f2",
+              alignItems: "center",
+              borderRadius: "8px",
+              padding: "11px 12px 8px 12px",
+              fontSize: "14px",
+            }}
+          >
+            Show
+            <select value={itemsPerPage} onChange={handleItemsPerPageChange}>
+              <option value={10}>10</option>
+              <option value={20}>20</option>
+              <option value={50}>50</option>
+            </select>
+          </span>
+          <span style={{ color: "#666666" }}>per page</span>
         </div>
-        <div>
+        <div style={{ display: "flex", gap: "8px" }}>
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            style={{ border: "1px solid #f2f2f2", padding: "8px", borderRadius: "8px" }}
+          >
+            {"<-"}
+          </button>
           {Array.from({ length: totalPages }, (_, index) => (
             <button
               key={index}
               onClick={() => handlePageChange(index + 1)}
               disabled={currentPage === index + 1}
+              style={{ border: "1px solid #f2f2f2", borderRadius: "8px", padding: "12px", fontSize: "14px" }}
             >
               {index + 1}
             </button>
           ))}
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            style={{ border: "1px solid #f2f2f2", padding: "8px", borderRadius: "8px" }}
+          >
+            {"->"}
+          </button>
         </div>
       </div>
     </div>

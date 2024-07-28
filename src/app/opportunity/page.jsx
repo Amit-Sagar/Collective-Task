@@ -1,22 +1,71 @@
-import Table from "@/module/Table/page";
+"use client";
 import React from "react";
-import snapChat from "../../../public/assets/snapchat-logo.png";
 import Card from "@/components/common/Card";
 import Header from "@/components/Header";
 import Image from "next/image";
 import assets from "@/assets";
+import Table from "@/components/common/Table";
 
 const Opportunity = () => {
-  const ROWS = [
-    { title: "Name", sorting: true, id: "name" },
-    { title: "Mission ID", sorting: false, id: "missionId" },
-    { title: "Brand", sorting: true, id: "brand" },
-    { title: "Start", sorting: true, id: "start" },
-    { title: "End", sorting: true, id: "end" },
-    { title: "Type", sorting: false, id: "type" },
-    { title: "Openings", sorting: true, id: "openings" },
-  ];
   const COLS = [
+    {
+      title: "Name",
+      sorting: true,
+      render: (rowData) => {
+        return (
+          <div className="flex gap-2 ">
+            <Image src={rowData.icon} alt="/" />
+            {rowData.name}
+          </div>
+        );
+      },
+    },
+    {
+      title: "Mission ID",
+      sorting: true,
+      render: (rowData) => {
+        return <span>{rowData.missionId}</span>;
+      },
+    },
+    {
+      title: "Brand",
+      sorting: true,
+      render: (rowData) => {
+        return <span className="fs-12 text-nowrap">{rowData.brand}</span>;
+      },
+    },
+    {
+      title: "Start",
+      sorting: true,
+      render: (rowData) => {
+        return <div className="flex items-center">{rowData.start}</div>;
+      },
+    },
+    {
+      title: "End",
+      sorting: true,
+      render: (rowData) => {
+        return (
+          <span className="w-100p flex justify-center">{rowData.end}</span>
+        );
+      },
+    },
+    {
+      title: "Type",
+      sorting: true,
+      render: (rowData) => {
+        return <span className="fs-12 mx-auto">{rowData?.type}</span>;
+      },
+    },
+    {
+      title: "Openings",
+      sorting: true,
+      render: (rowData) => {
+        return <span>{rowData.openings}</span>;
+      },
+    },
+  ];
+  const ROWS = [
     {
       name: "Areate a Reel for Gujrat Tourism on Instagram",
       missionId: "982918279201920",
@@ -25,7 +74,7 @@ const Opportunity = () => {
       end: "12/04/2023, 12:00 PM",
       type: "Giveaway",
       openings: 24,
-      icon: snapChat.src,
+      icon: assets.images.snapChat,
     },
     {
       name: "breate a Reel for Gujrat Tourism on Instagram",
@@ -35,7 +84,7 @@ const Opportunity = () => {
       end: "10/04/2023, 12:00 PM",
       type: "Internship",
       openings: 24,
-      icon: snapChat.src,
+      icon: assets.images.snapChat,
     },
     {
       name: "Create a Reel for Gujrat Tourism on Instagram",
@@ -45,7 +94,7 @@ const Opportunity = () => {
       end: "10/04/2023, 12:00 PM",
       type: "Internship",
       openings: 24,
-      icon: snapChat.src,
+      icon: assets.images.snapChat,
     },
     {
       name: "dreate a Reel for Gujrat Tourism on Instagram",
@@ -55,7 +104,7 @@ const Opportunity = () => {
       end: "10/04/2023, 12:00 PM",
       type: "Internship",
       openings: 24,
-      icon: snapChat.src,
+      icon: assets.images.snapChat,
     },
     {
       name: "ereate a Reel for Gujrat Tourism on Instagram",
@@ -65,7 +114,7 @@ const Opportunity = () => {
       end: "10/04/2023, 12:00 PM",
       type: "Internship",
       openings: 24,
-      icon: snapChat.src,
+      icon: assets.images.snapChat,
     },
     {
       name: "freate a Reel for Gujrat Tourism on Instagram",
@@ -75,7 +124,7 @@ const Opportunity = () => {
       end: "10/04/2023, 12:00 PM",
       type: "Internship",
       openings: 24,
-      icon: snapChat.src,
+      icon: assets.images.snapChat,
     },
     {
       name: "greate a Reel for Gujrat Tourism on Instagram",
@@ -85,7 +134,7 @@ const Opportunity = () => {
       end: "10/04/2023, 12:00 PM",
       type: "Internship",
       openings: 24,
-      icon: snapChat.src,
+      icon: assets.images.snapChat,
     },
     {
       name: "hreate a Reel for Gujrat Tourism on Instagram",
@@ -95,7 +144,7 @@ const Opportunity = () => {
       end: "10/04/2023, 12:00 PM",
       type: "Internship",
       openings: 24,
-      icon: snapChat.src,
+      icon: assets.images.snapChat,
     },
     {
       name: "Create a Reel for Gujrat Tourism on Instagram",
@@ -105,7 +154,7 @@ const Opportunity = () => {
       end: "10/04/2023, 12:00 PM",
       type: "Internship",
       openings: 24,
-      icon: snapChat.src,
+      icon: assets.images.snapChat,
     },
     {
       name: "Create a Reel for Gujrat Tourism on Instagram",
@@ -115,7 +164,7 @@ const Opportunity = () => {
       end: "10/04/2023, 12:00 PM",
       type: "Internship",
       openings: 24,
-      icon: snapChat.src,
+      icon: assets.images.snapChat,
     },
     {
       name: "Areate a Reel for Gujrat Tourism on Instagram",
@@ -125,8 +174,9 @@ const Opportunity = () => {
       end: "12/04/2023, 12:00 PM",
       type: "Giveaway",
       openings: 24,
-      icon: snapChat.src,
-    }, {
+      icon: assets.images.snapChat,
+    },
+    {
       name: "Areate a Reel for Gujrat Tourism on Instagram",
       missionId: "982918279201920",
       brand: "Snapchat",
@@ -134,8 +184,9 @@ const Opportunity = () => {
       end: "12/04/2023, 12:00 PM",
       type: "Giveaway",
       openings: 24,
-      icon: snapChat.src,
-    }, {
+      icon: assets.images.snapChat,
+    },
+    {
       name: "Areate a Reel for Gujrat Tourism on Instagram",
       missionId: "982918279201920",
       brand: "Snapchat",
@@ -143,8 +194,9 @@ const Opportunity = () => {
       end: "12/04/2023, 12:00 PM",
       type: "Giveaway",
       openings: 24,
-      icon: snapChat.src,
-    }, {
+      icon: assets.images.snapChat,
+    },
+    {
       name: "Areate a Reel for Gujrat Tourism on Instagram",
       missionId: "982918279201920",
       brand: "Snapchat",
@@ -152,7 +204,7 @@ const Opportunity = () => {
       end: "12/04/2023, 12:00 PM",
       type: "Giveaway",
       openings: 24,
-      icon: snapChat.src,
+      icon: assets.images.snapChat,
     },
   ];
   return (

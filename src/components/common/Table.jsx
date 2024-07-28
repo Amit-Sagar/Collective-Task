@@ -94,7 +94,7 @@ const Table = ({ rows, cols }) => {
         }}
       >
         <div>
-          Show{" "}
+          Show
           <select value={itemsPerPage} onChange={handleItemsPerPageChange}>
             <option value={10}>10</option>
             <option value={20}>20</option>

@@ -12,12 +12,14 @@ const Header = ({ showBtn }) => {
           <p className="text-[#666666] text-sm">Opportunity analysis</p>
         </div>
       )}
-      <div className="flex items-center gap-4">
+      <div
+        className={`flex items-center gap-4 ${showBtn && "w-full justify-end"}`}
+      >
         {showBtn && (
           <Button
             icon={assets.icons.plusIcon}
             title="Create Mission"
-            classes="bg-black text-white p-2 px-4 rounded-lg"
+            classes="bg-black text-white p-2 px-4 rounded-lg text-sm"
           />
         )}
         <div className="flex items-center gap-3">

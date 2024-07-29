@@ -58,6 +58,7 @@ const MID_SECTION_DATA = [
 ]
 
 export default function Home() {
+
   let brandData = [
     {
       label: "Branded",
@@ -72,6 +73,7 @@ export default function Home() {
       cutout: "50%",
     },
   ];
+
   let missionData = [
     {
       label: "Started",
@@ -92,6 +94,7 @@ export default function Home() {
       cutout: "50%",
     },
   ];
+
   return (
     <div className="w-full mr-3">
       <Header />
@@ -126,11 +129,11 @@ export default function Home() {
               <DoughnutChart data={brandData} />
               <div className="w-full flex flex-col gap-4">
                 <div className="flex justify-between text-xs text-[#767676] w-full">
-                  <p> Branded</p>
+                  <div className="flex gap-1 items-center"><div className="w-2 h-2 bg-[#FD904B] rounded"></div> Branded</div>
                   <p>60%</p>
                 </div>
                 <div className="flex justify-between text-xs text-[#767676] w-full">
-                  <p > Non-Branded</p>
+                  <div className="flex gap-1 items-center"><div className="w-2 h-2 bg-[#334BFF] rounded"></div> Non-Branded</div>
                   <p >60%</p>
                 </div>
               </div>
@@ -141,23 +144,32 @@ export default function Home() {
               <DoughnutChart data={missionData} />
               <div className="w-full flex flex-col gap-4">
                 <div className="flex justify-between items-center text-xs text-[#767676] w-full">
-                  <div>
-                    <p className="text-[#1F1F1F]">1K</p>
-                    <p> Started</p>
+                  <div className="flex gap-1 items-center">
+                    <div className="w-2 h-2 bg-[#334BFF] rounded"></div>
+                    <div>
+                      <p className="text-[#1F1F1F]">1K</p>
+                      <p> Started</p>
+                    </div>
                   </div>
                   <p>60%</p>
                 </div>
                 <div className="flex justify-between items-center text-xs text-[#767676] w-full">
-                  <div>
-                    <p className="text-[#1F1F1F]">3.9K</p>
-                    <p > Evaluated</p>
+                  <div className="flex items-center gap-1">
+                    <div className="w-2 h-2 bg-[#FD904B] rounded"></div>
+                    <div>
+                      <p className="text-[#1F1F1F]">3.9K</p>
+                      <p > Evaluating</p>
+                    </div>
                   </div>
                   <p >20%</p>
                 </div>
                 <div className="flex justify-between items-center text-xs text-[#767676] w-full">
-                  <div>
-                    <p className="text-[#1F1F1F]">1.1K</p>
-                    <p > Completed</p>
+                  <div className="flex items-center gap-1">
+                    <div className="w-2 h-2 bg-[#67AB75] rounded"></div>
+                    <div>
+                      <p className="text-[#1F1F1F]">1.1K</p>
+                      <p > Completed</p>
+                    </div>
                   </div>
                   <p >20%</p>
                 </div>
@@ -165,6 +177,7 @@ export default function Home() {
             </div>
           </TopCard>
         </div>
+
         <div className="flex flex-wrap gap-5 mt-7">
           {MID_SECTION_DATA.map((item) => <MidSectionCard key={item.id} img={item.img} title={item.title} subTitle={item.subTitle} />)}
         </div>
@@ -180,7 +193,21 @@ export default function Home() {
                 <option>All Time</option>
               </select>
             </div>
-            <div className="mt-10">
+            <div className="flex gap-3 items-center mt-5">
+              <div className="flex gap-2 items-center text-xs border border-gray-300 px-2 py-1 rounded">
+                <div className="w-3 h-3 bg-[#374EFF]"></div>
+                <p>Mission</p>
+              </div>
+              <div className="flex gap-2 items-center text-xs border border-gray-300 px-2 py-1 rounded">
+                <div className="w-3 h-3 bg-[#FDA268]"></div>
+                <p>Giveaways</p>
+              </div>
+              <div className="flex gap-2 items-center text-xs border border-gray-300 px-2 py-1 rounded">
+                <div className="w-3 h-3 bg-[#67AB75]"></div>
+                <p>Jobs/Internships</p>
+              </div>
+            </div>
+            <div className="mt-6">
               <BarChart />
             </div>
           </Card>

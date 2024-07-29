@@ -21,6 +21,8 @@ const assets = {
     images: {
         snapChat: require('@/assets/images/snapchat-logo.png').default,
         sorting: require('@/assets/images/sorting-icon.png').default,
+        loginBg: require('@/assets/images/Background.png').default,
+        loginImage: require('@/assets/images/Asset.png').default,
     }
 }
 

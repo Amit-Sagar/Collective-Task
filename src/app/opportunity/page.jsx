@@ -70,6 +70,7 @@ const Opportunity = () => {
       },
     },
   ];
+
   const ROWS = [
     {
       name: "Areate a Reel for Gujrat Tourism on Instagram",
@@ -332,6 +333,7 @@ const Opportunity = () => {
       icon: assets.images.snapChat,
     },
   ];
+
   return (
     <div>
       <Header showBtn />

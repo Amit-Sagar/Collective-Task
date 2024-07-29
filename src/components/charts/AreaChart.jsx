@@ -12,6 +12,7 @@ import {
   Filler,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import { createPattern } from "@/utils/patternCreator";
 
 ChartJS.register(
   CategoryScale,
@@ -23,45 +24,6 @@ ChartJS.register(
   Legend,
   Filler
 );
-
-const createPattern = (color, patternType, backgroundColor, ctx) => {
-  const size = 10;
-  const canvas = document.createElement("canvas");
-  canvas.width = size;
-  canvas.height = size;
-  const patternCtx = canvas.getContext("2d");
-  patternCtx.fillStyle = backgroundColor;
-  patternCtx.fillRect(0, 0, size, size);
-
-  switch (patternType) {
-    case "stripe":
-      patternCtx.strokeStyle = color;
-      patternCtx.lineWidth = 5;
-      patternCtx.beginPath();
-      patternCtx.moveTo(0, 0);
-      patternCtx.lineTo(size, size);
-      patternCtx.stroke();
-      break;
-    case "dot":
-      patternCtx.fillStyle = color;
-      patternCtx.beginPath();
-      patternCtx.arc(size / 2, size / 2, size / 4, 0, 2 * Math.PI);
-      patternCtx.fill();
-      break;
-    case "line":
-      patternCtx.strokeStyle = color;
-      patternCtx.lineWidth = 1;
-      patternCtx.beginPath();
-      patternCtx.moveTo(size / 2, 0);
-      patternCtx.lineTo(size / 2, size);
-      patternCtx.stroke();
-      break;
-    default:
-      break;
-  }
-
-  return ctx.createPattern(canvas, "repeat");
-};
 
 export const options = {
   plugins: {

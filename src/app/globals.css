@@ -9,6 +9,12 @@
 }
 
 .bar-chart {
-    width: 484px !important;
-    height: 200px !important;
+    width: 100% !important;
+    height: 100% !important;
 }
+
+.area-chart {
+    width: 100% !important;
+    height: 100% !important;
+}
+

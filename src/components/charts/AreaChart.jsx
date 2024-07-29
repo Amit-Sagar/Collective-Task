@@ -80,7 +80,7 @@ const AreaChart = () => {
     setData({ ...initialData, datasets });
   }, []);
 
-  return <Line className="bar-chart" options={options} data={data} />;
+  return <Line className="area-chart" options={options} data={data} />;
 };
 
 export default AreaChart;

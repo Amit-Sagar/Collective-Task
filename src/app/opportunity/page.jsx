@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import Image from "next/image";
 import assets from "@/assets";
 import Table from "@/components/common/Table";
+import Button from "@/components/common/Button";
+import Select from "@/components/common/Select";
 
 const Opportunity = () => {
   const COLS = [
@@ -339,17 +341,25 @@ const Opportunity = () => {
       <Header showBtn />
       <Card classes="p-5 overflow-auto">
         <div>
-          <div
-            style={{
-              display: "flex",
-              gap: "2px",
-              borderBottom: "1px solid #F2F2F2",
-              paddingBottom: "16px",
-              marginBottom: "16px",
-            }}
-          >
+          <div className="flex gap-2 border-b border-[#F2F2F2] pb-4 mb-4 ">
             <Image src={assets.icons.opportunity} />
             <h1 style={{ fontSize: "28px" }}>Opportunities</h1>
+          </div>
+          <div className="flex gap-3 items-center mb-4">
+            <Button
+              icon={assets.icons.sortIcon}
+              classes="border border-gray-300 p-2 rounded-md"
+            />
+            <Button
+              icon={assets.icons.filterIcon}
+              classes="border border-gray-300 p-2 rounded-md"
+            />
+            <Select label="Type" options={["All", "one", "two"]} />
+            <Select label="Status" options={["All", "one", "two"]} />
+            <Select
+              label="Duration"
+              options={["This Week", "This Month", "This year"]}
+            />
           </div>
           <Table rows={ROWS} cols={COLS} />
         </div>

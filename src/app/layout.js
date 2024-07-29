@@ -2,7 +2,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import assets from "@/assets";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -35,6 +35,16 @@ const sidebarList = [
 
 export default function RootLayout({ children }) {
   const [selectedMenu, setSelectedMenu] = useState(1)
+
+  useEffect(() => {
+    if (window.location.pathname.includes('opportunity')) {
+      setSelectedMenu(2)
+    } else if (window.location.pathname.includes('assigned-task')) {
+      setSelectedMenu(3)
+    } else {
+      setSelectedMenu(1)
+    }
+  }, [])
 
   return (
     <html lang="en">

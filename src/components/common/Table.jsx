@@ -37,7 +37,7 @@ const Table = ({ rows, cols }) => {
   };
 
   const handlePageChange = (page) => {
-    setCurrentPage(page);
+    if (page > 0 && page <= totalPages) setCurrentPage(page);
   };
 
   return (
@@ -101,7 +101,7 @@ const Table = ({ rows, cols }) => {
               <option value={50}>50</option>
             </select>
           </span>
-          <span style={{ color: "#666666" }}>per page</span>
+          <span style={{ color: "#666" }}>per page</span>
         </div>
         <div style={{ display: "flex", gap: "8px" }}>
           <button

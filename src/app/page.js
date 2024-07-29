@@ -183,7 +183,7 @@ export default function Home() {
         </div>
 
         <div className="mt-8 flex gap-5">
-          <Card bordered classes="p-5">
+          <Card bordered classes="p-5 w-[50%]" >
             <div className="flex justify-between">
               <div>
                 <p className="text-lg">No. of Opportunities</p>
@@ -207,11 +207,11 @@ export default function Home() {
                 <p>Jobs/Internships</p>
               </div>
             </div>
-            <div className="mt-6">
+            <div className="mt-6 w-full">
               <BarChart />
             </div>
           </Card>
-          <Card bordered classes="p-5">
+          <Card bordered classes="p-5 w-[50%]">
             <div className="flex justify-between">
               <div>
                 <p className="text-lg">No. of Missions</p>
@@ -221,7 +221,7 @@ export default function Home() {
                 <option>All Time</option>
               </select>
             </div>
-            <div className="mt-10">
+            <div className="mt-14 w-full">
               <AreaChart />
             </div>
           </Card>

@@ -13,7 +13,7 @@ const Sidebar = ({ sidebarList, selectedMenu, setSelectedMenu }) => {
   };
 
   return (
-    <div className=" bg-white h-svh	">
+    <div className=" bg-white h-svh	relative">
       <div className="flex justify-between items-center border-b border-gray-300 p-5">
         <Image src={assets.icons.logo} alt="/logo" />
         <button className="border border-gray-300 p-2 rounded-md">
@@ -32,6 +32,10 @@ const Sidebar = ({ sidebarList, selectedMenu, setSelectedMenu }) => {
             onClick={() => hanldeClick(item)}
           />
         ))}
+      </div>
+      <div className="flex items-center gap-2 absolute bottom-0  w-full p-6 cursor-pointer hover:bg-slate-200">
+        <Image src={assets.icons.logout} alt="/" />
+        <p>Logout</p>
       </div>
     </div>
   );
